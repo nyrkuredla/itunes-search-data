@@ -4,7 +4,7 @@ const baseUrl = "https://itunes.apple.com/search?term=";
 const player = document.querySelector("audio");
 const input = document.getElementById("search");
 const submit = document.getElementById("submit");
-const results = document.getElementsByClassName("results");
+const resultsDiv = document.getElementById("results");
 let searchStr = "";
 let searchArr = [];
 let queryStr = "";
@@ -20,6 +20,7 @@ submit.addEventListener("click", function(event) {
   });
 });
 
+//creating search function from input string
 function formatSearch () {
   queryUrl = "";
   searchArr = searchStr.split(" ");
@@ -30,14 +31,46 @@ function formatSearch () {
   queryUrl = baseUrl + queryStr;
   searchStr = "";
   searchArr = [];
-  console.log(queryUrl);
 }
 
+//fetching search results from iTunes API
 function getResults() {
   return fetch(queryUrl).then(function (data) {
     return data.json();
   }).then(function (data) {
-    console.log(data.results);
+
+    //declaring variables for template literal to insert result data into DOM
+    let results = data.results;
+    let artistName;
+    let trackPicture;
+    let artistLink;
+    let trackTitle;
+    let trackClip;
+
+    //looping over result data to create template literal
+    let resultsHTML;
+    for (let i = 0; i < results.length; i++) {
+      //plugging data into variables from result array
+      artistName = results[i].artistName;
+      trackPicture = results[i].artworkUrl100;
+      artistLink = results[i].artistViewUrl;
+      trackTitle = results[i].trackCensoredName;
+      trackClip = results[i].previewUrl;
+
+      //creating results template literal
+      resultsHTML = `
+      <div class="results-div">
+        <img class="results-pic" src=${trackPicture} />
+        <a class="results-link" href=${artistLink}>${artistName}</a>
+        <p class="results-track">Track: ${trackTitle}</p>
+      </div>`;
+      console.log(resultsHTML);
+
+      //adding new divs to result div
+      resultsDiv.innerHTML += resultsHTML;
+    }
+
+    //adding song clip to audio player
   })
 }
 
