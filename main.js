@@ -63,20 +63,26 @@ function getResults() {
         <img class="results-pic" src=${trackPicture} />
         <a class="results-link" href=${artistLink}>${artistName}</a>
         <p class="results-track">Track: ${trackTitle}</p>
-      </div>`;
-      console.log(resultsHTML);
-
+        <button class="audio-button" name="audio-button">Play</button>
+      </div>`
       //adding new divs to result div
       resultsDiv.innerHTML += resultsHTML;
+
+      function changeAudioClip() {
+        // player.setAttribute("src", trackClip);
+        console.log(trackTitle);
+      }
+
+      let audioButton = document.querySelectorAll("button");
+      console.log(audioButton);
+
+      audioButton[0].addEventListener("click", changeAudioClip);
+
+
+
     }
 
-    //adding song clip to audio player
+
+
   })
 }
-
-
-
-
-// 3. Create your `fetch` request that is called after a submission
-// 4. Create a way to append the fetch results to your page
-// 5. Create a way to listen for a click that will play the song in the audio play
