@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>iTunes Music Search</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="./style.css">
 </head>
 <body>
   <div class="container">
@@ -13,12 +13,14 @@
       <audio class="music-player" controls="controls" src=""></audio>
     </section>
     <section class="search">
-      <form class="search-form">
-        
+      <form class="search-form" role="search">
+        <input type="search" id="search" name="term"
+         placeholder="Search for music!" size="30" required>
+        <button type="submit" id = "submit" name="submit">Submit</button>
       </form>
     </section>
     <section class="results"></section>
   </div>
-  <script src="main.js"></script>
+  <script src="./main.js"></script>
 </body>
 </html>
