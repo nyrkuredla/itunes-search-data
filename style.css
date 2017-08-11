@@ -1,3 +1,27 @@
+/*font-family: 'Crushed', cursive;
+font-family: 'Raleway', sans-serif;
+
+Colors:
+blue: #1D4954;
+brick red: #87372D;
+grass green: #5C7C29;
+
+
+*/
+
 body {
-  background-color: #60d9f1;
+  background-color: #eee;
+  font-family: 'Crushed', cursive;
+}
+
+h2.blue {
+  color: #1D4954;
+}
+
+h2.red {
+  color: #87372D;
+}
+
+h2.green {
+  color: #5C7C29;
 }

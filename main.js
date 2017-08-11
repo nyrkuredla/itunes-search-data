@@ -5,6 +5,12 @@ const player = document.querySelector("audio");
 const input = document.getElementById("search");
 const submit = document.getElementById("submit");
 const resultsDiv = document.getElementById("results");
+
+
+function playSong(url) {
+  player.setAttribute('src', url);
+}
+
 let searchStr = "";
 let searchArr = [];
 let queryStr = "";
@@ -63,22 +69,10 @@ function getResults() {
         <img class="results-pic" src=${trackPicture} />
         <a class="results-link" href=${artistLink}>${artistName}</a>
         <p class="results-track">Track: ${trackTitle}</p>
-        <button class="audio-button" name="audio-button">Play</button>
+        <button class="audio-button" name="audio-button"  onClick="playSong('${trackClip}')">Play</button>
       </div>`
       //adding new divs to result div
       resultsDiv.innerHTML += resultsHTML;
-
-      function changeAudioClip() {
-        // player.setAttribute("src", trackClip);
-        console.log(trackTitle);
-      }
-
-      let audioButton = document.querySelectorAll("button");
-      console.log(audioButton);
-
-      audioButton[0].addEventListener("click", changeAudioClip);
-
-
 
     }
 
