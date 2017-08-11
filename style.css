@@ -1,27 +1,105 @@
-/*font-family: 'Crushed', cursive;
-font-family: 'Raleway', sans-serif;
+/*font-family: 'Comfortaa', sans-serif;
+font-family: 'Ubuntu', sans-serif;
 
 Colors:
-blue: #1D4954;
-brick red: #87372D;
-grass green: #5C7C29;
+black: #fff;
+pink: #FF8EFF;
+blue: #87DAFE;
 
 
 */
 
 body {
-  background-color: #eee;
-  font-family: 'Crushed', cursive;
+  background-color: black;
+  background-image: url("./soundboard.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
 }
 
-h2.blue {
-  color: #1D4954;
+/*div.container {
+  display: flex;
+  flex-flow: column nowrap;
+}*/
+
+header {
+  background-color:rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 5%;
 }
 
-h2.red {
-  color: #87372D;
+
+header p {
+  font-family: 'Comfortaa', sans-serif;
+  font-size: 3em;
+  text-align: center;
+  background: -webkit-linear-gradient(#FF8EFF, #87DAFE);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-h2.green {
-  color: #5C7C29;
+form.search-form {
+  margin: 1% 40%;
+}
+
+audio.music-player {
+  margin: 0 38%;
+}
+
+section#results {
+  background-color:rgba(0, 0, 0, 0.2);
+  height: 80%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+
+.fixed-content {
+    display: block;
+    max-height: 80%;
+    overflow-y:scroll;
+    overflow-x: scroll;
+}
+
+.results-div {
+  font-family: 'Ubuntu', sans-serif;
+  background-color:rgba(0, 0, 0, 0.5);
+  color: #87DAFE;
+  width: 80%;
+  margin: 1% 0.5%;
+  width: 20%;
+  height: 20%;
+  display: flex;
+  flex-flow: column nowrap;
+  border: 1px dotted #87DAFE;
+  text-align: center;
+}
+
+.results-div img {
+  height: 100px;
+  width: 100px;
+  margin: 5px auto;
+  padding: 1%;
+}
+
+.results-div a {
+  text-decoration: none;
+  color: #FF8EFF;
+  margin: 5px auto;
+  line-height: 1.0em;
+  /*padding: 1%;*/
+}
+
+.results-div p.results-track {
+  margin: 5px auto;
+  line-height: 1.0em;
+  /*padding: 1%;*/
+}
+
+.results-div button {
+  font-family: 'Ubuntu', sans-serif;
+  margin: 5px auto;
 }

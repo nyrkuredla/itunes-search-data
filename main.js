@@ -6,34 +6,46 @@ const input = document.getElementById("search");
 const submit = document.getElementById("submit");
 const resultsDiv = document.getElementById("results");
 
-
+//function for play buttons to play clips in audio player
 function playSong(url) {
   player.setAttribute('src', url);
 }
 
+//search function variables
 let searchStr = "";
 let searchArr = [];
 let queryStr = "";
 let queryUrl = "";
 
+//clearing old searches before submitting new search query
+  function clearData() {
+    resultsDiv.innerHTML = ``;
+  }
+
 //creating event listener for submit button to get input string
 submit.addEventListener("click", function(event) {
   event.preventDefault();
+  clearData();
   searchStr = input.value;
   formatSearch();
   getResults().then( function() {
     input.value = "";
   });
+
 });
 
 //creating search function from input string
 function formatSearch () {
+  searchArr = [];
   queryUrl = "";
+  queryStr = "";
   searchArr = searchStr.split(" ");
   for (let i = 0; i < (searchArr.length - 1); i++) {
     queryStr += searchArr[i] + "+";
   }
   queryStr += searchArr[(searchArr.length - 1)];
+  console.log(queryStr);
+  console.log(searchArr);
   queryUrl = baseUrl + queryStr;
   searchStr = "";
   searchArr = [];
