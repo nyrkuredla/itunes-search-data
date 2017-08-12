@@ -80,8 +80,8 @@ function getResults() {
       <div class="results-div">
         <img class="results-pic" src=${trackPicture} />
         <a class="results-link" href=${artistLink}>${artistName}</a>
-        <p class="results-track">Track: ${trackTitle}</p>
-        <button class="audio-button" name="audio-button"  onClick="playSong('${trackClip}')">Play</button>
+        <p class="results-track"> ${trackTitle}</p>
+        <button class="audio-button" name="audio-button"  onClick="playSong('${trackClip}')">Play!</button>
       </div>`
       //adding new divs to result div
       resultsDiv.innerHTML += resultsHTML;
